@@ -13,6 +13,8 @@
   },
   "dependencies": {
     "@fontsource/geist-sans": "^5.0.3",
+    "@steeze-ui/heroicons": "^2.3.0",
+    "@steeze-ui/svelte-icon": "^1.5.0",
     "@sveltejs/adapter-static": "^3.0.1",
     "@tauri-apps/api": ">=2.0.0-beta.0",
     "@tauri-apps/plugin-os": "^2.0.0-beta.3",

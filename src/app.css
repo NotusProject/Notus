@@ -13,24 +13,19 @@
 
 
 body {
-    min-height: 100vh;
-    min-width: 100vw;
     background-color:hsla(0,0%,7%,1);
-    background-image:
-            radial-gradient(at 100% 0%, hsla(174,83%,31%,0.15) 0px, transparent 50%),
-            radial-gradient(at 0% 0%, hsla(174,83%,31%,0) 0px, transparent 50%);
+    overflow: hidden;
 }
-body, html {
-    @apply h-full
-}
+
+
 
 * {
     --sb-track-color: rgba(35, 46, 51, 0);
     --sb-thumb-color: rgb(209 213 219 / 0.85);
     --sb-size: 5px;
 }
-
 *::-webkit-scrollbar {
+
     width: var(--sb-size)
 }
 

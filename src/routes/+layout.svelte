@@ -1,9 +1,27 @@
 <script>
     import "../app.css";
+    import {WindowTitlebar} from "@tauri-controls/svelte";
     let { children } = $props();
 </script>
-<main>
-{@render children()}
+<main class="overflow-hidden">
+    <WindowTitlebar
+            class="h-10  !bg-none !bg-transparent dark:bg-slate-800"
+            controlsOrder="platform"
+            data-tauri-drag-region
+            windowControlsProps={{ class: " *:stroke-white  "}}
+    >
+        <div class="ml-3 flex items-center" data-tauri-drag-region>
+            <div
+                    class="flex w-full font-medium text-slate-400  items-center justify-center"
+                    data-tauri-drag-region
+            >
+                Notus
+            </div>
+        </div>
+    </WindowTitlebar>
+    <div class="overflow-scroll  h-[calc(100vh)] ">
+        {@render children()}
+    </div>
 </main>
 <style>
 
