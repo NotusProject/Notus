@@ -1,11 +1,16 @@
 // @ts-ignore
 // @ts-ignore
+// @ts-ignore
 
 import { defineConfig } from "vite";
 
 import { internalIpV4 } from "internal-ip";
 import { sveltekit } from '@sveltejs/kit/vite';
-// @ts-expect-error process is a nodejs global
+
+/**
+ * @ts-ignore
+ * @ts-expect-error process is a nodejs global
+ */
 const mobile = !!/android|ios/.exec(process.env.TAURI_ENV_PLATFORM);
 
 // https://vitejs.dev/config/

@@ -1,8 +1,9 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
-      './src/**/*.{html,js,svelte,ts}',
     './node_modules/@tauri-controls/svelte/**/*.{js,svelte,ts}',
+      './src/**/*.{html,js,svelte,ts}',
+    "./node_modules/@tauri-controls/svelte/dist/**/*.{js,svelte,ts}"
   ],
   theme: {
     extend: {
@@ -11,6 +12,8 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/forms'),
+  ],
 }
 

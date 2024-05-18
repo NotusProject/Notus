@@ -1,0 +1,52 @@
+@import '@fontsource/geist-sans/100.css';
+@import '@fontsource/geist-sans/200.css';
+@import '@fontsource/geist-sans/300.css';
+@import '@fontsource/geist-sans/400.css';
+@import '@fontsource/geist-sans/500.css';
+@import '@fontsource/geist-sans/600.css';
+@import '@fontsource/geist-sans/700.css';
+@import '@fontsource/geist-sans/800.css';
+@import '@fontsource/geist-sans/900.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+body {
+    min-height: 100vh;
+    min-width: 100vw;
+    background-color:hsla(0,0%,7%,1);
+    background-image:
+            radial-gradient(at 100% 0%, hsla(174,83%,31%,0.15) 0px, transparent 50%),
+            radial-gradient(at 0% 0%, hsla(174,83%,31%,0) 0px, transparent 50%);
+}
+body, html {
+    @apply h-full
+}
+
+* {
+    --sb-track-color: rgba(35, 46, 51, 0);
+    --sb-thumb-color: rgb(209 213 219 / 0.85);
+    --sb-size: 5px;
+}
+
+*::-webkit-scrollbar {
+    width: var(--sb-size)
+}
+
+*::-webkit-scrollbar-track {
+    background: var(--sb-track-color);
+    border-radius: 3px;
+}
+
+*::-webkit-scrollbar-thumb {
+    background: var(--sb-thumb-color);
+    border-radius: 3px;
+
+}
+
+@supports not selector(::-webkit-scrollbar) {
+    * {
+        scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
+    }
+}
