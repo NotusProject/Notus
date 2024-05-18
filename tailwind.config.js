@@ -5,6 +5,7 @@ export default {
       './src/**/*.{html,js,svelte,ts}',
     "./node_modules/@tauri-controls/svelte/dist/**/*.{js,svelte,ts}"
   ],
+  darkMode: 'selector',
   theme: {
     extend: {
       fontFamily: {
