@@ -1,7 +1,11 @@
 <script>
     import "../app.css";
     import {WindowTitlebar} from "@tauri-controls/svelte";
-    let { children } = $props();
+    import {fade} from 'svelte/transition';
+    import { cubicIn, cubicOut } from 'svelte/easing';
+
+    let { children,data} = $props();
+
 </script>
 <main class="overflow-hidden">
     <WindowTitlebar
@@ -19,9 +23,14 @@
             </div>
         </div>
     </WindowTitlebar>
-    <div class="overflow-scroll  h-[calc(100vh)] ">
+    {#key data.url}
+    <div
+            in:fade={{ easing: cubicOut, duration: 220}}
+            out:fade={{ easing: cubicIn, duration: 250 }}
+            class="overflow-scroll  h-[calc(100vh)] ">
         {@render children()}
     </div>
+        {/key}
 </main>
 <style>
 

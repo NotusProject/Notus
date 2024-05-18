@@ -1,6 +1,6 @@
 <script>
     import {Icon} from '@steeze-ui/svelte-icon'
-    import {Bolt, Envelope, Key} from '@steeze-ui/heroicons'
+    import {Bolt, Envelope, Key, User} from '@steeze-ui/heroicons'
     import Input from "$lib/components/common/Input.svelte";
 </script>
 <div class="flex h-[calc(100vh-40px)] pt-5  flex-col justify-center overflow-hidden  px-0.5 lg:px-8">
@@ -29,14 +29,14 @@
                 </Input>
                 <Input
                         icon={true}
-                        id="email"
-                        label="Email"
-                        name="email"
-                        placeholder="you@example.com"
+                        id="username"
+                        label="Display name"
+                        name="username"
+                        placeholder="Bombaclat3000"
                         required
-                        type="email"
+                        type="text"
                 >
-                    <Icon class='fill-gray-400' size="20px" src={Envelope} theme='mini'/>
+                    <Icon class='fill-gray-400' size="20px" src={User} theme='mini'/>
                 </Input>
                 <Input
                         autocomplete="current-password"
