@@ -17,7 +17,8 @@
     "window:allow-minimize",
     "os:allow-os-type",
     "window:allow-toggle-maximize",
-    "window:allow-start-dragging"
+    "window:allow-start-dragging",
+    "os:allow-platform"
   ],
   "capabilities": [
 

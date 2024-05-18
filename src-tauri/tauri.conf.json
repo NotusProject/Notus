@@ -3,7 +3,7 @@
   "version": "0.0.1-alpha",
   "identifier": "com.notus.dev",
   "build": {
-    "beforeDevCommand": "bun  dev",
+    "beforeDevCommand": "bun run dev",
     "beforeBuildCommand": "bun run build",
     "devUrl": "http://localhost:5173",
     "frontendDist": "../build"

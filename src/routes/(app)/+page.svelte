@@ -3,17 +3,23 @@
     import { WindowTitlebar} from "@tauri-controls/svelte";
 
     const platforms = ["gnome"]
+    import { platform } from '@tauri-apps/plugin-os';
+    let device = $state('')
+    $effect(async()=>{
+        const platformName = await platform();
+        device = platformName
+    })
 </script>
 
 <svelte:head>
     <title>Demo-Svelte</title>
 </svelte:head>
 
-
+{#if device !== '' && device !== "android"}
 
             <WindowTitlebar
                     controlsOrder="platform"
-                    class="h-10 rounded-t-lg  bg-white shadow dark:bg-slate-800"
+                    class="h-13   bg-white shadow dark:bg-slate-800"
                     data-tauri-drag-region
             >
                 <div class="ml-3 flex items-center" data-tauri-drag-region>
@@ -33,10 +39,9 @@
 
             </WindowTitlebar>
 
+    {/if}
 
-
-
-<style lang="postcss">
+<style >
     :global(html.dark) {
         background-color: theme(colors.sky.950);
     }
