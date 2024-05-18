@@ -1,6 +1,6 @@
 {
-  "productName": "tauri-app",
-  "version": "0.0.0",
+  "productName": "notus-app",
+  "version": "0.0.1-alpha",
   "identifier": "com.notus.dev",
   "build": {
     "beforeDevCommand": "bun  dev",
@@ -8,13 +8,16 @@
     "devUrl": "http://localhost:5173",
     "frontendDist": "../build"
   },
+
   "app": {"windows": [
       {
-        "title": "tauri-app",
+        "title": "tauri-dev",
         "width": 1280,
-        "height": 720
+        "height": 720,
+        "decorations": false
       }
     ],
+
     "security": {
       "csp": null
     }
