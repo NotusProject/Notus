@@ -3,7 +3,7 @@
     import {Bolt, Envelope, Key, User} from '@steeze-ui/heroicons'
     import Input from "$lib/components/common/Input.svelte";
 </script>
-<div class="flex h-[calc(100vh-40px)] pt-5  flex-col justify-center overflow-hidden  px-0.5 lg:px-8">
+<div class="flex h-[calc(100vh-40px)] pt-5  flex-col justify-center overflow-hidden  px-4 lg:px-8">
     <div class=" sm:mx-auto sm:w-full sm:max-w-[500px] ">
         <div
                 class="backdrop-blur bg-gray-600/25 	  ring-1 ring-gray-500 ring-opacity-65 px-6 py-12 shadow rounded-[48px] rounded-tr-none rounded-bl-none sm:px-12">
