@@ -32,3 +32,5 @@ vite.config.ts.timestamp-*
 *.sw?
 pnpm-lock.yaml
 bun.lockb
+src/routes/test/page.svelte
+.gitignore
