@@ -23,7 +23,7 @@
         {/if}
         <input
                 {...rest}
-                class="block w-full rounded-md bg-transparent border-0 py-1.5 pl-10 text-white ring-1 ring-inset {rest.class} ring-gray-500 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-500 focus:bg-gray-300/5 hover:bg-gray-300/5 sm:text-sm sm:leading-6"
+                class="block w-full rounded-md bg-transparent border-0 py-3 md:py-1.5 pl-10 text-white ring-1 ring-inset {rest.class} ring-gray-500 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-500 focus:bg-gray-300/5 hover:bg-gray-300/5 sm:text-sm sm:leading-6"
                 placeholder="{placeholder}"
                 type="{type}"
         >
