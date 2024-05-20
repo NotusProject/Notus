@@ -1,4 +1,4 @@
-<script lang="ts">
+<script generics="T" lang="ts">
     import {Icon} from '@steeze-ui/svelte-icon';
 
     let {
@@ -9,7 +9,7 @@
         value = $bindable(),
         children,
         ...rest
-    } = $props();
+    }: any = $props();
 </script>
 
 <div>

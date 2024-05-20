@@ -20,7 +20,7 @@
             </div>
             <form class="space-y-6" onsubmit={async()=>{await pocketbase.collection('users').authWithPassword(email, password);
             await goto("/")
-            }}> >
+            }}>
                 <Input
                         bind:value={email}
                         icon={true}
