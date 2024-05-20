@@ -1,15 +1,29 @@
-<script>
+<script lang="ts">
     import "../app.css";
     import {WindowTitlebar} from "@tauri-controls/svelte";
     import {fade} from 'svelte/transition';
     import { cubicIn, cubicOut } from 'svelte/easing';
     import { platform } from '@tauri-apps/plugin-os';
+    import {setContext} from "svelte";
+    import {LocalStorage} from "$lib/utils/utilsSvelte.svelte.js";
+    import type {AuthModel, RecordAuthResponse, RecordModel} from 'pocketbase';
+    import {pocketbase} from "$lib/services/pocketbase";
     let { children,data} = $props();
     let platformName = $state("")
     $effect(async()=>{
          platformName = await platform();
 
     })
+    const userLocalStorage = new LocalStorage<AuthModel>('user', null);
+    const userRune =$state<AuthModel>(null)
+    $effect(() => {
+        if (userLocalStorage.value !== null && userLocalStorage.key !== '') {
+            userRune!.authStore = userLocalStorage.value;
+        }
+        pocketbase.authStore.onChange(async (token, model) => {
+            userLocalStorage.value = model;
+        });
+    });
 </script>
 <main class="overflow-hidden">
     {#if platformName !== 'android' && platformName !== ""}

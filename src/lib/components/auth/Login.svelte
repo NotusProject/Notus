@@ -2,6 +2,9 @@
     import {Icon} from '@steeze-ui/svelte-icon'
     import {Bolt, Envelope, Key} from '@steeze-ui/heroicons'
     import Input from "$lib/components/common/Input.svelte";
+    import {pocketbase} from "$lib/services/pocketbase";
+    import {goto} from "$app/navigation";
+    let [email,password] = $state('');
 </script>
 <div class="flex h-[calc(100vh-40px)]  flex-col justify-center py-12 px-4 lg:px-8">
     <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-[500px]">
@@ -15,8 +18,11 @@
                         class="mt-6 text-center text-xl font-medium  tracking-wide leading-normal text-white">
                     Welcome Back!</h2>
             </div>
-            <form class="space-y-6" action="#" method="POST">
+            <form class="space-y-6" onsubmit={async()=>{await pocketbase.collection('users').authWithPassword(email, password);
+            await goto("/")
+            }}> >
                 <Input
+                        bind:value={email}
                         icon={true}
                         id="email"
                         label="Email"
@@ -28,6 +34,7 @@
                     <Icon class='fill-gray-400' size="20px" src={Envelope} theme='mini'/>
                 </Input>
                 <Input
+                        bind:value={password}
                         autocomplete="current-password"
                         icon={true}
                         id="password"
