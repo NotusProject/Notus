@@ -11,12 +11,11 @@
         ...rest
     }: any = $props();
 </script>
-
-<div>
+<div class="">
     {#if label !== '' && label !== undefined}
         <label for="{label ? 'input': 'input'}" class="block text-sm font-medium leading-6 text-white">{label}</label>
     {/if}
-    <div class="relative mt-2 rounded-md shadow-sm">
+    <div class="relative mt-2  rounded-md shadow-sm">
         {#if icon}
             <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
                 {@render children()}

@@ -19,7 +19,7 @@
                     Welcome Back!</h2>
             </div>
             <form class="space-y-6" onsubmit={async()=>{await pocketbase.collection('users').authWithPassword(email, password);
-            await goto("/")
+            await goto("/friends")
             }}>
                 <Input
                         bind:value={email}
