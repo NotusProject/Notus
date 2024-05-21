@@ -4,29 +4,33 @@
         ChatBubbleLeftRight, Users, Squares2x2, Bell, Cog6Tooth, GlobeAlt, PlayCircle, Play, Tv, Sun, Moon
     } from '@steeze-ui/heroicons';
     import {Icon} from "@steeze-ui/svelte-icon";
+    import {page} from "$app/stores";
 
     const routesFirstRow = [
-        {name: 'Dashboard', href: '#', icon: Squares2x2, current: true},
-        {name: 'Messages', href: '#', icon: ChatBubbleLeftRight, current: false},
-        {name: 'Friends', href: '#', icon: Users, current: false},
+        { name: 'Dashboard', href: '/', icon: Squares2x2 },
+        { name: 'Messages', href: '/messages', icon: ChatBubbleLeftRight },
+        { name: 'Friends', href: '/friends', icon: Users },
     ];
     const routesSecondRow = [
-        {name: 'Notifications', href: '#', icon: Bell, current: false},
-        {name: 'Watch2gether', href: '#', icon: PlayCircle, current: false},
-        {name: 'Discover', href: '#', icon: GlobeAlt, current: false},
-        {name: 'Settings', href: '#', icon: Cog6Tooth, current: false},
+        { name: 'Notifications', href: '/notifications', icon: Bell },
+        { name: 'Watch2gether', href: '/watch', icon: PlayCircle },
+        { name: 'Discover', href: '/discover', icon: GlobeAlt },
+        { name: 'Settings', href: '/settings', icon: Cog6Tooth },
     ];
     let theme = ""
     function toggleTheme(){
         return "";
     }
+    $effect(()=>{
+        console.log($page.url.pathname)
+    })
 </script>
 
-{#snippet navItem({name, href, icon, current})}
+{#snippet navItem({name, href, icon})}
     <li>
         <a
                 href={href}
-                class={current ? 'bg-teal-400/25 text-white *:stroke-teal-400' : 'text-gray-400 hover:text-white hover:bg-gray-800'}
+                class={$page.url.pathname === href ? 'bg-teal-400/25 text-white *:stroke-teal-400' : 'text-gray-400 hover:text-white hover:bg-gray-800'}
                 class:group="{true}"
                 class:flex="{true}"
                 class:gap-x-3="{true}"
@@ -63,12 +67,12 @@
             <li class="mt-auto absolute  bottom-0 mb-4 flex justify-center">
                 <div class="border flex flex-col gap-2 rounded-full p-1.5 bg-slate-700/20 border-gray-600/60">
 
-                        <button on:click={() => toggleTheme()}>
+                        <button onclick={() => toggleTheme()}>
                             <Icon class="stroke-white" size="20px" src={Sun} theme="outline"/>
                         </button>
                     <span class="items-center border-b  w-full h-fit border-gray-500/90">
                     </span>
-                        <button on:click={() => toggleTheme()}>
+                        <button onclick={() => toggleTheme()}>
                             <Icon class="stroke-teal-500" size="20px" src={Moon} theme="outline"/>
                         </button>
 
