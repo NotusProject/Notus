@@ -4,15 +4,17 @@
     import SideBar from "$lib/components/common/SideBar.svelte";
     import {fly} from "svelte/transition";
     import {cubicIn, cubicOut} from "svelte/easing";
+    import {pocketbase} from "$lib/services/pocketbase";
 
     let {children, data} = $props();
     let user = $state<AuthModel>({});
     $effect(() => {
         user = getContext('user');
         console.log(data)
+        console.log(pocketbase.authStore)
     })
 </script>
-{#if user}
+{#if pocketbase.authStore.token}
 
 
     <div >

@@ -1,26 +1,14 @@
 <script lang="ts">
     import "../app.css";
     import {WindowTitlebar} from "@tauri-controls/svelte";
-    import {fade} from 'svelte/transition';
-    import {cubicIn, cubicOut} from 'svelte/easing';
-    import {platform} from '@tauri-apps/plugin-os';
-    import {setContext} from "svelte";
-    import {LocalStorage} from "$lib/utils/utilsSvelte.svelte.js";
     import type {AuthModel, RecordAuthResponse, RecordModel} from 'pocketbase';
     import {pocketbase} from "$lib/services/pocketbase";
 
     let {children, data} = $props();
-    let platformName = $state("")
-
-    const userLocalStorage = new LocalStorage<AuthModel>('user', null);
     const user = $state<AuthModel>({})
     $effect(() => {
-        if (userLocalStorage.value !== null && userLocalStorage.key !== '') {
-            user!.authStore = userLocalStorage.value;
-            setContext('user', user);
-        }
         pocketbase.authStore.onChange(async (token, model) => {
-            userLocalStorage.value = model;
+            user!.authStore = model;
         });
     });
 </script>
@@ -39,7 +27,7 @@
 <!--                    Notus-->
 <!--                </div>-->
             </div>
-            {#if user}
+            {#if user?.token}
                 <div  class="absolute z-50  left-1/2 transform top-1 -translate-x-1/2 lex w-96 mx-auto font-medium text-xs text-slate-400 items-center justify-center">
                     <input type="text" name="search" id="search"
                            class="block w-full rounded-md  border-0 py-1 bg-slate-400/20 text-white  ring-inset text-xs ring-gray-500 placeholder:text-gray-400  focus:ring-1 focus:ring-inset focus:ring-gray-500 focus:bg-gray-300/15 hover:bg-gray-300/25 sm:text-sm sm:leading-6"
