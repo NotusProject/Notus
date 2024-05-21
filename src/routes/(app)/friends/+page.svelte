@@ -1,12 +1,27 @@
 <script>
 
     import AddFriendSection from "./components/AddFriendSection.svelte";
-    import {Envelope, Phone, Signal} from "@steeze-ui/heroicons";
+    import {Bell, Check, Cog6Tooth, Envelope, GlobeAlt, Phone, PlayCircle, Signal, XMark} from "@steeze-ui/heroicons";
     import {Icon} from "@steeze-ui/svelte-icon";
+    import UserListItem from "./components/UserListItem.svelte";
     let tab = $state(0)
-
+    const actionBtns = [
+        { text: '', icon: Phone, background: "bg-teal-600"},
+        { text: '', href: '/watch', icon: Envelope, background: "bg-teal-600" },
+        { text: '', href: '/discover', icon: Signal, background: "bg-teal-600" },
+    ];
+    const requestBtns = [
+        { text: 'Accept', icon: Check, background: "bg-teal-600" },
+        { text: 'Reject', icon: XMark, background: "bg-gray-500/55" },
+    ];
 </script>
+{#snippet navItem({text, icon, background})}
+    <button onclick={()=>{tab = 3}} type="button" class="inline-flex items-center gap-x-1.5 rounded-md {background} px-2.5 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-teal-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-600">
+        <Icon class='-ml-0.5' size="20px" src={icon} theme='mini'/>
 
+        {text}
+    </button>
+    {/snippet}
 <div class="flex flex-col h-full">
     <div class="border-b border-gray-500 pb-5 sm:pb-0">
         <div class="flex justify-between items-center ">
@@ -38,40 +53,16 @@
     </div>
     {#if tab ===0}
     <ul role="list" class="">
+        <UserListItem
+        avatar="https://cdn.discordapp.com/avatars/911937892471959552/d1e6ea730edfca8dfc03ad3f2e93e017?size=1024"
+        username="vynxc"
+        span="Online"
+        >
+            {#each actionBtns as btn}
+                {@render navItem(btn)}
+                {/each}
+        </UserListItem>
         <li class="relative flex justify-between gap-x-6  py-5 ">
-            <div class="flex min-w-0 gap-x-4">
-                <img class="h-12 w-12 flex-none rounded-md ring-2 ring-teal-500  ring-opacity-75" src="https://cdn.discordapp.com/avatars/911937892471959552/d1e6ea730edfca8dfc03ad3f2e93e017?size=1024" alt="">
-                <div class="min-w-0 flex-auto">
-                    <p class="text-sm font-semibold leading-6 text-gray-200">
-                            <span class="absolute inset-x-0 -top-px bottom-0"></span>
-                           Vynxc
-                    </p>
-                    <div class="mt-1 flex text-xs leading-5 text-gray-500">
-
-                    <div class=" flex items-center gap-x-1.5">
-                        <div class="flex-none rounded-full bg-emerald-500/20 p-1">
-                            <div class="h-1.5 w-1.5 rounded-full bg-emerald-500"></div>
-                        </div>
-                        <p class="text-xs leading-5 text-gray-500">Online</p>
-                    </div>
-                    </div>
-                </div>
-            </div>
-            <div class="flex shrink-0 items-center gap-x-4">
-                <div class="hidden sm:flex gap-4 sm:items-end">
-                    <button onclick={()=>{tab = 3}} type="button" class="inline-flex items-center gap-x-1.5 rounded-md bg-teal-600 px-2.5 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-teal-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-600">
-
-                        <Icon class='-ml-0.5' size="20px" src={Phone} theme='mini'/>
-                    </button>
-                    <button onclick={()=>{tab = 3}} type="button" class="inline-flex items-center gap-x-1.5 rounded-md bg-teal-600 px-2.5 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-teal-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-600">
-                        <Icon class='-ml-0.5' size="20px" src={Envelope} theme='mini'/>
-                    </button>
-                    <button onclick={()=>{tab = 3}} type="button" class="inline-flex items-center gap-x-1.5 rounded-md bg-teal-600 px-2.5 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-teal-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-600">
-                        <Icon class='-ml-0.5' size="20px" src={Signal} theme='mini'/>
-                    </button>
-                </div>
-            </div>
-        </li><li class="relative flex justify-between gap-x-6  py-5 ">
             <div class="flex min-w-0 gap-x-4">
                 <img class="h-12 w-12 flex-none rounded-md ring-2 ring-gray-400  ring-opacity-75" src="https://cdn.discordapp.com/avatars/1226135412150505503/b6e0faa1d24b06aef215deef6fdd0a6e?size=1024" alt="">
                 <div class="min-w-0 flex-auto">
@@ -106,6 +97,19 @@
 
 
     </ul>
+        {/if}
+    {#if tab ===2}
+        <ul role="list" class="">
+            <UserListItem
+                    avatar="https://cdn.discordapp.com/avatars/911937892471959552/d1e6ea730edfca8dfc03ad3f2e93e017?size=1024"
+                    username="vynxc"
+                    span="Online"
+            >
+                {#each requestBtns as btn}
+                    {@render navItem(btn)}
+                {/each}
+            </UserListItem>
+        </ul>
         {/if}
     {#if tab === 3}
         <AddFriendSection/>
