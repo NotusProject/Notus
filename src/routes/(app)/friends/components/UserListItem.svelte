@@ -15,7 +15,7 @@
                     <div class="flex-none rounded-full bg-emerald-500/20 p-1">
                         <div class="h-1.5 w-1.5 rounded-full bg-emerald-500"></div>
                     </div>
-                    <p class="text-xs leading-5 text-gray-500">{span}</p>
+                    <p class="text-xs leading-5 text-gray-400">{span}</p>
                 </div>
             </div>
         </div>
