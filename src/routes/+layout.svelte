@@ -26,18 +26,18 @@
 </script>
 <main class="overflow-hidden">
         <WindowTitlebar
-                class="h-10 hidden lg:flex bg-slate-600/25 backdrop-blur"
+                class="h-10  hidden lg:flex bg-slate-600/35 backdrop-blur relative"
                 controlsOrder="platform"
                 data-tauri-drag-region
                 windowControlsProps={{ class: " *:stroke-white  *:min-h-10"}}
         >
             <div class="ml-3 flex justify-center items-center" data-tauri-drag-region>
-                <div
-                        class="flex w-full font-medium text-slate-400  items-center justify-center"
-                        data-tauri-drag-region
-                >
-                    Notus
-                </div>
+<!--                <div-->
+<!--                        class="flex w-full font-medium text-slate-400  items-center justify-center"-->
+<!--                        data-tauri-drag-region-->
+<!--                >-->
+<!--                    Notus-->
+<!--                </div>-->
             </div>
             {#if user}
                 <div class="absolute left-1/2 transform top-1 -translate-x-1/2 lex w-96 mx-auto font-medium text-xs text-slate-400 items-center justify-center">
@@ -49,6 +49,8 @@
                     </div>
                 </div>
             {/if}
+            <div class="absolute inset-y-0 left-[80px] w-full border-b    border-gray-700"></div>
+
         </WindowTitlebar>
     <div class="absolute -z-10 inset-0 flex items-center justify-center isolate overflow-hidden">
         <svg aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full stroke-gray-500/15 [mask-image:radial-gradient(100%_100%_at_top_right,teal,transparent)]">
