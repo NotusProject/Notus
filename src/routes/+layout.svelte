@@ -26,10 +26,10 @@
 </script>
 <main class="overflow-hidden">
         <WindowTitlebar
-                class="h-10  hidden lg:flex bg-slate-600/35 backdrop-blur relative"
+                class="h-10  hidden  lg:flex bg-slate-600/35 backdrop-blur relative"
                 controlsOrder="platform"
                 data-tauri-drag-region
-                windowControlsProps={{ class: " *:stroke-white  *:min-h-10"}}
+                windowControlsProps={{ class: " *:stroke-white *:z-50 *:min-h-10"}}
         >
             <div class="ml-3 flex justify-center items-center" data-tauri-drag-region>
 <!--                <div-->
@@ -40,7 +40,7 @@
 <!--                </div>-->
             </div>
             {#if user}
-                <div class="absolute left-1/2 transform top-1 -translate-x-1/2 lex w-96 mx-auto font-medium text-xs text-slate-400 items-center justify-center">
+                <div  class="absolute  left-1/2 transform top-1 -translate-x-1/2 lex w-96 mx-auto font-medium text-xs text-slate-400 items-center justify-center">
                     <input type="text" name="search" id="search"
                            class="block w-full rounded-md  border-0 py-1 bg-slate-600/25 text-white  ring-inset text-xs ring-gray-500 placeholder:text-gray-400  focus:ring-1 focus:ring-inset focus:ring-gray-500 focus:bg-gray-300/5 hover:bg-gray-300/10 sm:text-sm sm:leading-6"
                            placeholder="search...">
@@ -49,7 +49,7 @@
                     </div>
                 </div>
             {/if}
-            <div class="absolute inset-y-0 left-[80px] w-full border-b    border-gray-700"></div>
+            <div class="absolute inset-y-0 left-[80px] w-full border-b    border-gray-700" data-tauri-drag-region></div>
 
         </WindowTitlebar>
     <div class="absolute -z-10 inset-0 flex items-center justify-center isolate overflow-hidden">
@@ -68,14 +68,10 @@
             <div class="aspect-[1108/632] w-[69.25rem] bg-gradient-to-r from-[#009488] to-[#009488] opacity-20" style="clip-path: polygon(73.6% 51.7%, 91.7% 11.8%, 100% 46.4%, 97.4% 82.2%, 92.5% 84.9%, 75.7% 64%, 55.3% 47.5%, 46.5% 49.4%, 45% 62.9%, 50.3% 87.2%, 21.3% 64.1%, 0.1% 100%, 5.4% 51.1%, 21.4% 63.9%, 58.9% 0.2%, 73.6% 51.7%)"></div>
         </div>
     </div>
-    {#key data.url}
         <div
-                in:fade={{ easing: cubicOut, duration: 220}}
-                out:fade={{ easing: cubicIn, duration: 250 }}
                 class="overflow-scroll  h-[calc(100vh)] ">
             {@render children()}
         </div>
-    {/key}
 </main>
 <style>
 
